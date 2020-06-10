@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Phase1.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Fonts/Roboto-MediumItalic.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Scripts/Panel.gd" type="Script" id=15]
 [ext_resource path="res://Sprites/undo.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/ErrorMessage.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
@@ -59,6 +60,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="StyleBoxEmpty" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="DynamicFont" id=15]
+size = 26
+font_data = ExtResource( 1 )
 
 [node name="Game" type="Node2D"]
 
@@ -504,6 +509,7 @@ __meta__ = {
 visible = false
 
 [node name="GamesPhase" type="Node2D" parent="UI/MenuButtons"]
+visible = false
 position = Vector2( 576, 0 )
 script = ExtResource( 2 )
 
@@ -903,6 +909,26 @@ custom_styles/separator = SubResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ErrorMessage" type="Node2D" parent="UI/MenuButtons"]
+position = Vector2( 0, 1160 )
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="UI/MenuButtons/ErrorMessage"]
+margin_right = 576.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0.862745, 0.0784314, 0.235294, 1 )
+text = "This is an error message"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="UI/MenuButtons/ErrorMessage"]
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/ErrorMessage"]
 [connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/Start" to="UI/MenuButtons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/How to play" to="UI/MenuButtons" method="_on_How_to_play_pressed"]
 [connection signal="meta_clicked" from="UI/MenuButtons/HowToPlay/RichTextLabel" to="UI/MenuButtons/HowToPlay" method="_on_RichTextLabel_meta_clicked"]
@@ -921,3 +947,4 @@ __meta__ = {
 [connection signal="pressed" from="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2/no" to="UI/MenuButtons" method="_on_Panel_no_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2/yes" to="UI/MenuButtons" method="_on_ResetPanel_yes_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2/no" to="UI/MenuButtons" method="_on_ResetPanel_no_pressed"]
+[connection signal="timeout" from="UI/MenuButtons/ErrorMessage/Timer" to="UI/MenuButtons/ErrorMessage" method="_on_Timer_timeout"]

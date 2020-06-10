@@ -133,7 +133,17 @@ func _on_Phase2_Next_pressed():
 
 
 func _on_GamePhase_Round_pressed():
-	
+	var sum = 0
+	for child in players:
+		sum += child.getGNum()
+	if sum != int(rounds_node.text):
+		var temp = int(rounds_node.text)
+		if sum < temp:
+			$ErrorMessage.setText("Someone missed a point!")
+		else:
+			$ErrorMessage.setText("Someone got too many points!")
+		$ErrorMessage.start()
+		return
 	##############################################
 	#saving current values
 	save_raising = raising

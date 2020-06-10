@@ -12,6 +12,9 @@ func setPoint(p):
 	
 func getPoint():
 	return int($Infos/Point.text)
+	
+func getGNum():
+	return int($HBox/GNum.text)
 
 func change_color(color):
 	$Infos/Name.add_color_override("font_color", Color(color))

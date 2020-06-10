@@ -1,0 +1,923 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Phase1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Start.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/MenuButtons.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Global.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/logo3.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Plus.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Minus.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/TitleNode.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/HowToPlay.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Fonts/Roboto-MediumItalic.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Scripts/Panel.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/undo.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 0.313726 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 34
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[node name="Game" type="Node2D"]
+
+[node name="Global" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 576.0
+margin_bottom = 1152.0
+color = Color( 0.870588, 0.870588, 0.870588, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="TitleNode" type="Node2D" parent="UI"]
+position = Vector2( 288, 300 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="UI/TitleNode"]
+scale = Vector2( 0.717305, 0.717305 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="move_tween" type="Tween" parent="UI/TitleNode"]
+
+[node name="MenuButtons" type="Node2D" parent="UI"]
+script = ExtResource( 4 )
+
+[node name="Start" type="Node2D" parent="UI/MenuButtons"]
+script = ExtResource( 3 )
+
+[node name="StartMenu" type="VBoxContainer" parent="UI/MenuButtons/Start"]
+margin_top = 505.082
+margin_right = 576.0
+margin_bottom = 714.082
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
+margin_right = 576.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Start"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="How to play" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
+margin_top = 57.0
+margin_right = 576.0
+margin_bottom = 110.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "How to play"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
+margin_top = 114.0
+margin_right = 576.0
+margin_bottom = 167.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Quit"
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/Start"]
+
+[node name="HowToPlay" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+position = Vector2( 576, 0 )
+script = ExtResource( 11 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/MenuButtons/HowToPlay"]
+margin_left = 20.0
+margin_top = 315.0
+margin_right = 556.0
+margin_bottom = 888.0
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+bbcode_enabled = true
+bbcode_text = "[b]About the app[/b]
+
+This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Said' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on the 'Said' and 'Got' numbers. At the top you can also see the current number of cards every player should have in their hands.
+
+You can reset the points to 0 any time by pressing the 'Reset' button and you can also quit to main menu any time by perssing the back button of your device. Have fun and if you are not sure in any rule you can always check this [url=https://en.wikipedia.org/wiki/Oh_Hell]WikiPedia[/url] link!"
+text = "About the app
+
+This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Said' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on the 'Said' and 'Got' numbers. At the top you can also see the current number of cards every player should have in their hands.
+
+You can reset the points to 0 any time by pressing the 'Reset' button and you can also quit to main menu any time by perssing the back button of your device. Have fun and if you are not sure in any rule you can always check this WikiPedia link!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="UI/MenuButtons/HowToPlay"]
+margin_top = 930.523
+margin_right = 576.0
+margin_bottom = 997.523
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/HowToPlay"]
+
+[node name="Phase1" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+position = Vector2( 576, 0 )
+script = ExtResource( 2 )
+
+[node name="Phase1Menu" type="VBoxContainer" parent="UI/MenuButtons/Phase1"]
+margin_top = 505.082
+margin_right = 576.0
+margin_bottom = 862.082
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NofPlayers" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_right = 576.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Number of players:"
+align = 1
+
+[node name="HBox" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 51.0
+margin_right = 576.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="Minus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
+margin_left = 190.0
+margin_right = 245.0
+margin_bottom = 61.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallSep" type="VSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
+margin_left = 249.0
+margin_right = 269.0
+margin_bottom = 61.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 20
+
+[node name="Number" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
+margin_left = 273.0
+margin_right = 307.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "3"
+
+[node name="SmallSep2" type="VSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
+margin_left = 311.0
+margin_right = 331.0
+margin_bottom = 61.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 20
+
+[node name="Plus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
+margin_left = 335.0
+margin_right = 385.0
+margin_bottom = 61.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxLaps" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 116.0
+margin_right = 576.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Max. cards in hand:"
+align = 1
+
+[node name="HBox2" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 167.0
+margin_right = 576.0
+margin_bottom = 228.0
+alignment = 1
+
+[node name="Minus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
+margin_left = 190.0
+margin_right = 245.0
+margin_bottom = 61.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallSep" type="VSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
+margin_left = 249.0
+margin_right = 269.0
+margin_bottom = 61.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 20
+
+[node name="NumberOfLaps" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
+margin_left = 273.0
+margin_right = 307.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "7"
+
+[node name="SmallSep2" type="VSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
+margin_left = 311.0
+margin_right = 331.0
+margin_bottom = 61.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 20
+
+[node name="Plus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
+margin_left = 335.0
+margin_right = 385.0
+margin_bottom = 61.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSep" type="HSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 232.0
+margin_right = 576.0
+margin_bottom = 292.0
+custom_styles/separator = SubResource( 7 )
+custom_constants/separation = 60
+
+[node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 296.0
+margin_right = 576.0
+margin_bottom = 349.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/Continue"]
+margin_left = 116.0
+margin_right = 240.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigSep" type="VSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu/Continue"]
+margin_left = 244.0
+margin_right = 344.0
+margin_bottom = 53.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 100
+
+[node name="Next" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/Continue"]
+margin_left = 348.0
+margin_right = 460.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Next"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/Phase1"]
+
+[node name="Phase2" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+position = Vector2( 576, 0 )
+script = ExtResource( 2 )
+
+[node name="Phase2Title" type="VBoxContainer" parent="UI/MenuButtons/Phase2"]
+margin_top = 56.0
+margin_right = 576.0
+margin_bottom = 107.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Phase2/Phase2Title"]
+margin_right = 576.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Names:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marg" type="MarginContainer" parent="UI/MenuButtons/Phase2"]
+margin_top = 132.0
+margin_right = 576.0
+margin_bottom = 757.0
+custom_constants/margin_right = 30
+custom_constants/margin_left = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MenuButtons/Phase2/Marg"]
+margin_left = 30.0
+margin_right = 546.0
+margin_bottom = 625.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Players" type="VBoxContainer" parent="UI/MenuButtons/Phase2/Marg/ScrollContainer"]
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/Phase2"]
+margin_top = 805.082
+margin_right = 576.0
+margin_bottom = 872.082
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="UI/MenuButtons/Phase2/Continue"]
+margin_left = 116.0
+margin_right = 240.0
+margin_bottom = 67.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigSep" type="VSeparator" parent="UI/MenuButtons/Phase2/Continue"]
+margin_left = 244.0
+margin_right = 344.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 100
+
+[node name="Next" type="Button" parent="UI/MenuButtons/Phase2/Continue"]
+margin_left = 348.0
+margin_right = 460.0
+margin_bottom = 67.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Next"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/Phase2"]
+
+[node name="PlayerIns" parent="UI/MenuButtons/Phase2" instance=ExtResource( 12 )]
+visible = false
+
+[node name="GamesPhase" type="Node2D" parent="UI/MenuButtons"]
+position = Vector2( 576, 0 )
+script = ExtResource( 2 )
+
+[node name="GamePhaseMenu" type="VBoxContainer" parent="UI/MenuButtons/GamesPhase"]
+margin_left = 40.0
+margin_top = 25.0
+margin_right = 536.0
+margin_bottom = 888.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu"]
+margin_right = 496.0
+margin_bottom = 47.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/HBox"]
+margin_left = 43.0
+margin_right = 398.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Cards in hands:"
+align = 1
+
+[node name="Space" type="VSeparator" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/HBox"]
+margin_left = 402.0
+margin_right = 422.0
+margin_bottom = 47.0
+custom_styles/separator = SubResource( 8 )
+custom_constants/separation = 20
+
+[node name="Rounds" type="Label" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/HBox"]
+margin_left = 426.0
+margin_right = 452.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+text = "0"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu"]
+margin_top = 51.0
+margin_right = 496.0
+margin_bottom = 71.0
+custom_styles/separator = SubResource( 9 )
+custom_constants/separation = 20
+
+[node name="ScrollC" type="ScrollContainer" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu"]
+margin_top = 75.0
+margin_right = 496.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 0, 800 )
+scroll_horizontal_enabled = false
+
+[node name="Players" type="VBoxContainer" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/ScrollC"]
+custom_constants/separation = 40
+
+[node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/GamesPhase"]
+margin_top = 930.523
+margin_right = 576.0
+margin_bottom = 997.523
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="UI/MenuButtons/GamesPhase/Continue"]
+margin_left = 102.0
+margin_right = 245.0
+margin_bottom = 67.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Reset"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="UI/MenuButtons/GamesPhase/Continue"]
+margin_left = 249.0
+margin_right = 299.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 8 )
+custom_constants/separation = 50
+
+[node name="Round" type="Button" parent="UI/MenuButtons/GamesPhase/Continue"]
+margin_left = 303.0
+margin_right = 473.0
+margin_bottom = 67.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Round!"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Undo" type="Button" parent="UI/MenuButtons/GamesPhase"]
+margin_left = 512.0
+margin_top = 16.0
+margin_right = 562.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.8, 0.8 )
+icon = ExtResource( 16 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="UI/MenuButtons/GamesPhase"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 53.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.658824, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.658824, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.337255, 0, 0, 1 )
+text = "X"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/GamesPhase"]
+
+[node name="Panel" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+script = ExtResource( 15 )
+
+[node name="AntiClickPanel" type="Panel" parent="UI/MenuButtons/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 576.0
+margin_bottom = 1152.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Backg" type="Panel" parent="UI/MenuButtons/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = 300.0
+margin_right = 488.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="UI/MenuButtons/Panel/Backg"]
+margin_right = 400.0
+margin_bottom = 200.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="UI/MenuButtons/Panel/Backg/Margin"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 370.0
+margin_bottom = 170.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbox" type="HBoxContainer" parent="UI/MenuButtons/Panel/Backg/Margin/VBox"]
+margin_right = 340.0
+margin_bottom = 35.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/Hbox"]
+margin_left = 10.0
+margin_right = 329.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Quit to main menu?"
+
+[node name="HBox2" type="HBoxContainer" parent="UI/MenuButtons/Panel/Backg/Margin/VBox"]
+margin_top = 85.0
+margin_right = 340.0
+margin_bottom = 138.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep2" type="VSeparator" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2"]
+margin_right = 32.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes" type="Button" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2"]
+margin_left = 36.0
+margin_right = 127.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "yes"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep" type="VSeparator" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2"]
+margin_left = 131.0
+margin_right = 231.0
+margin_bottom = 53.0
+custom_styles/separator = SubResource( 13 )
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no" type="Button" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2"]
+margin_left = 235.0
+margin_right = 303.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "no"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep3" type="VSeparator" parent="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2"]
+margin_left = 307.0
+margin_right = 340.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetPanel" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+skew = 4.37114e-08
+script = ExtResource( 15 )
+
+[node name="AntiClickPanel" type="Panel" parent="UI/MenuButtons/ResetPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 576.0
+margin_bottom = 1152.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Backg" type="Panel" parent="UI/MenuButtons/ResetPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = 300.0
+margin_right = 488.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="UI/MenuButtons/ResetPanel/Backg"]
+margin_right = 400.0
+margin_bottom = 200.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="UI/MenuButtons/ResetPanel/Backg/Margin"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 370.0
+margin_bottom = 170.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbox" type="HBoxContainer" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox"]
+margin_right = 340.0
+margin_bottom = 35.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/Hbox"]
+margin_left = 61.0
+margin_right = 279.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Reset game?"
+
+[node name="HBox2" type="HBoxContainer" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox"]
+margin_top = 85.0
+margin_right = 340.0
+margin_bottom = 138.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep2" type="VSeparator" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2"]
+margin_right = 32.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes" type="Button" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2"]
+margin_left = 36.0
+margin_right = 127.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "yes"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep" type="VSeparator" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2"]
+margin_left = 131.0
+margin_right = 231.0
+margin_bottom = 53.0
+custom_styles/separator = SubResource( 13 )
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no" type="Button" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2"]
+margin_left = 235.0
+margin_right = 303.0
+margin_bottom = 53.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "no"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep3" type="VSeparator" parent="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2"]
+margin_left = 307.0
+margin_right = 340.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/Start" to="UI/MenuButtons" method="_on_Start_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/How to play" to="UI/MenuButtons" method="_on_How_to_play_pressed"]
+[connection signal="meta_clicked" from="UI/MenuButtons/HowToPlay/RichTextLabel" to="UI/MenuButtons/HowToPlay" method="_on_RichTextLabel_meta_clicked"]
+[connection signal="pressed" from="UI/MenuButtons/HowToPlay/Back" to="UI/MenuButtons" method="_on_How_to_play_Back_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/HBox2/Minus" to="UI/MenuButtons" method="_on_MaxLap_Minus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/HBox2/Plus" to="UI/MenuButtons" method="_on_MaxLaps_Plus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/Continue/Back" to="UI/MenuButtons" method="_on_Start_Back_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/Continue/Next" to="UI/MenuButtons" method="_on_Phase1_Next_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase2/Continue/Back" to="UI/MenuButtons" method="_on_Phase2_Back_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase2/Continue/Next" to="UI/MenuButtons" method="_on_Phase2_Next_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GamesPhase/Continue/Reset" to="UI/MenuButtons" method="_on_GamePhase_Reset_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GamesPhase/Continue/Round" to="UI/MenuButtons" method="_on_GamePhase_Round_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GamesPhase/Undo" to="UI/MenuButtons" method="_on_GamePhase_Undo_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GamesPhase/QuitButton" to="UI/MenuButtons" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2/yes" to="UI/MenuButtons" method="_on_Panel_yes_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2/no" to="UI/MenuButtons" method="_on_Panel_no_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2/yes" to="UI/MenuButtons" method="_on_ResetPanel_yes_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2/no" to="UI/MenuButtons" method="_on_ResetPanel_no_pressed"]

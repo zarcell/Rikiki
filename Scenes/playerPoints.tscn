@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/playerPoints.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="Player" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -981.0
+rect_min_size = Vector2( 500, 0 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Infos" type="HBoxContainer" parent="."]
+margin_right = 576.0
+margin_bottom = 41.0
+
+[node name="Name" type="Label" parent="Infos"]
+margin_right = 243.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+text = "Player Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="Infos"]
+margin_left = 247.0
+margin_right = 469.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="Point" type="Label" parent="Infos"]
+margin_left = 473.0
+margin_right = 542.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Infos"]
+margin_left = 546.0
+margin_right = 576.0
+margin_bottom = 41.0
+custom_styles/separator = SubResource( 2 )
+custom_constants/separation = 30
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_top = 45.0
+margin_right = 576.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="Said" type="Label" parent="HBox"]
+margin_left = 59.0
+margin_right = 158.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Said:"
+
+[node name="SMinus" type="Button" parent="HBox"]
+margin_left = 162.0
+margin_right = 202.0
+margin_bottom = 41.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+
+[node name="SNum" type="Label" parent="HBox"]
+margin_left = 206.0
+margin_right = 229.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+text = "0"
+
+[node name="SPlus" type="Button" parent="HBox"]
+margin_left = 233.0
+margin_right = 270.0
+margin_bottom = 41.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HBox"]
+margin_left = 274.0
+margin_right = 324.0
+margin_bottom = 41.0
+custom_styles/separator = SubResource( 5 )
+custom_constants/separation = 50
+
+[node name="Got" type="Label" parent="HBox"]
+margin_left = 328.0
+margin_right = 405.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Got:"
+
+[node name="GMinus" type="Button" parent="HBox"]
+margin_left = 409.0
+margin_right = 449.0
+margin_bottom = 41.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+
+[node name="GNum" type="Label" parent="HBox"]
+margin_left = 453.0
+margin_right = 476.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+text = "0"
+
+[node name="GPlus" type="Button" parent="HBox"]
+margin_left = 480.0
+margin_right = 517.0
+margin_bottom = 41.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+[connection signal="pressed" from="HBox/SMinus" to="." method="_on_Said_Minus_pressed"]
+[connection signal="pressed" from="HBox/SPlus" to="." method="_on_Said_Plus_pressed"]
+[connection signal="pressed" from="HBox/GMinus" to="." method="_on_Got_Minus_pressed"]
+[connection signal="pressed" from="HBox/GPlus" to="." method="_on_Got_Plus_pressed"]

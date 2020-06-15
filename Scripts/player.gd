@@ -9,3 +9,6 @@ func _is_pos_in(checkpos:Vector2):
 func _input(event):
 	if event is InputEventMouseButton and not _is_pos_in(event.position) or event.is_action_pressed("ui_accept"):
 		release_focus()
+
+func _on_Player_focus_exited():
+	text = text.strip_edges()

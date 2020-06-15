@@ -3,6 +3,11 @@ extends Node2D
 var numberOfPlayers = 3
 var maximumLaps = 7
 
+# SETTINGS
+var fastGame = false
+var startWithMax = false
+var multipleOneCards = false
+
 var animationSpeed = 0.5
 
 var light_gray = "#b5b5b5"

@@ -3,6 +3,10 @@ extends Node2D
 var startingPoint = Vector2(0, 1160)
 
 
+func _ready():
+	visible = true
+
+
 func start():
 	move(Vector2(0, 760))
 	$Timer.start(2)

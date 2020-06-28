@@ -26,6 +26,7 @@ func resetGame():
 	$GamesPhase/GamePhaseMenu/HBox/Rounds.text = "1" if raising else str(Global.maximumLaps)
 	$GamesPhase/Continue/VSeparator.visible = true
 	$GamesPhase/Continue/Round.visible = true
+	$GamesPhase/Undo.visible = false
 
 func add_players():
 	var players_node = $Phase2/Marg/ScrollContainer/Players
@@ -48,6 +49,7 @@ func add_players():
 		var HSep_ins = preload("res://Scenes/HSep.tscn")
 		for child in players_node.get_children():
 			if child is HSeparator:
+				players_node.remove_child(child)
 				child.queue_free()
 		players_node.add_child(HSep_ins.instance())
 
@@ -58,6 +60,7 @@ func add_players_with_points():
 	
 	#delete all children if exists
 	for child in players_points_node.get_children():
+		players_points_node.remove_child(child)
 		child.queue_free()
 	
 	var temp = []
@@ -71,6 +74,10 @@ func add_players_with_points():
 	players = temp
 	currentPlayer = 0
 	players[currentPlayer].change_color(Global.lime)
+	
+	# Leaderboard
+	updateLeaderboard()
+	print("when adding players")
 
 
 func _notification(what):
@@ -84,10 +91,6 @@ func _on_Start_pressed():
 	
 	get_parent().get_node("TitleNode").move(Vector2(288, 100))
 	get_node("Start").move(Vector2(-576, 0))
-	$Phase1/Phase1Menu/HBox/Number.text = str(Global.numberOfPlayers)
-	$Phase1/Phase1Menu/HBox2/NumberOfLaps.text = str(Global.maximumLaps)
-	$Phase1/Phase1Menu/FastMode/CheckBox.pressed = Global.fastGame
-	$Phase1/Phase1Menu/StartWihtMax/CheckBox.pressed = Global.startWithMax
 	get_node("Phase1").move(Vector2(0, 0))
 
 
@@ -137,8 +140,6 @@ func _on_How_to_play_Back_pressed():
 
 #GAME BEGINS READY
 func _on_Phase2_Next_pressed():
-	$GamesPhase/GamePhaseMenu/ScrollC.scroll_vertical_enabled = Global.numberOfPlayers > 6
-	
 	# checking blank names
 	for child in $Phase2/Marg/ScrollContainer/Players.get_children():
 		if child is LineEdit:
@@ -146,6 +147,10 @@ func _on_Phase2_Next_pressed():
 				$ErrorMessage.setText("Incorrect name!")
 				$ErrorMessage.start()
 				return
+	
+	$GamesPhase/GamePhaseMenu/ScrollC.scroll_vertical_enabled = Global.numberOfPlayers > 6
+	$Leaderboard.visible = true
+	
 	add_players_with_points()
 	resetGame()
 	gamePhase = true
@@ -156,7 +161,6 @@ func _on_Phase2_Next_pressed():
 
 # Making a round
 func _on_GamePhase_Round_pressed():
-
 	var sum = 0
 	for child in players:
 		sum += child.getGNum()
@@ -193,7 +197,7 @@ func _on_GamePhase_Round_pressed():
 			rounds_node.text = str(int(rounds_node.text) + 1 + fastMode)
 			if int(rounds_node.text) >= Global.maximumLaps:
 				raising = false
-				if Global.startWithMax:
+				if Global.startWithMax or (!Global.startWithMax and !Global.extraReverseRound):
 					#utso kor
 					lastRound = true
 			#ha csokken
@@ -201,7 +205,7 @@ func _on_GamePhase_Round_pressed():
 			rounds_node.text = str(int(rounds_node.text) - 1 - fastMode)
 			if int(rounds_node.text) <= 1:
 				raising = true
-				if (!Global.startWithMax):
+				if (!Global.startWithMax or (Global.startWithMax and !Global.extraReverseRound)):
 					#utso kor
 					lastRound = true
 	else:
@@ -212,6 +216,10 @@ func _on_GamePhase_Round_pressed():
 	#calculating new points
 	for child in players:
 		child.calcPoints()
+		
+	#leaderboard points update
+	updateLeaderboard()
+	print("from round pressed")
 	
 	#change color of the player names
 	players[currentPlayer].change_color(Global.dark_gray)
@@ -219,6 +227,31 @@ func _on_GamePhase_Round_pressed():
 	if currentPlayer >= players.size():
 		currentPlayer = 0
 	players[currentPlayer].change_color(Global.lime)
+	
+
+func updateLeaderboard():
+	var lb_players_node = $Leaderboard/PanelC/VBox/Players
+	var lb_player_ins = preload("res://Scenes/playerScores.tscn")
+	var lb_players = []
+	
+	for child in lb_players_node.get_children():
+		lb_players_node.remove_child(child)
+		child.queue_free()
+		
+	print(players.size())
+	for p in players:
+		var ins = lb_player_ins.instance()
+		ins.setName(p.getText())
+		ins.setPoint(p.getPoint())
+		lb_players.append(ins)
+	
+	lb_players.sort_custom(self, "comp")
+	
+	for p in lb_players:
+		lb_players_node.add_child(p)
+	
+func comp(a, b):
+	return a.getPoint() > b.getPoint()
 	
 
 func _on_GamePhase_Reset_pressed():
@@ -251,13 +284,15 @@ func _on_Panel_yes_pressed():
 
 func _on_ResetPanel_yes_pressed():
 	$ResetPanel.visible = false
-	$GamesPhase/Undo.visible = false
-	resetGame()
 	
 	var list = $GamesPhase/GamePhaseMenu/ScrollC/Players.get_children()
 	
 	for child in list:
 		child.reset()
+		
+	updateLeaderboard()
+	
+	resetGame()
 
 
 func _on_ResetPanel_no_pressed():
@@ -283,6 +318,10 @@ func _on_GamePhase_Undo_pressed():
 	for i in range(save_points.size()):
 		players[i].reset()
 		players[i].setPoint(save_points[i])
+		
+	# update leaderboard
+	updateLeaderboard()
+	print("from undo")
 
 
 func _on_Settings_pressed():
@@ -303,3 +342,8 @@ func _on_Settings_Back_pressed():
 
 func _on_Bug_pressed():
 	$BugReportPanel.up()
+
+
+func _on_Donate_pressed():
+	var URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EYEA52E2HCXAG&source=url"
+	OS.shell_open(URL)

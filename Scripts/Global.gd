@@ -7,6 +7,14 @@ var maximumLaps = 7
 var fastGame = false
 var startWithMax = false
 var multipleOneCards = false
+var extraReverseRound = false
+
+# POINT CALC
+var hittingBidExtra = 10
+var trickWinExtra = 1
+var pointsWhenMissingBid = true
+var missingBidMinus = 2
+var nullBidWorthHalf = false
 
 var animationSpeed = 0.5
 

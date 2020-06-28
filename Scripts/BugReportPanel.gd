@@ -9,8 +9,8 @@ func move(target):
 	move_tween.start()
 
 func up():
-	move(Vector2(0, -300))
-	$Timer.start(10)
+	move(Vector2(0, -160))
+	$Timer.start(7)
 
 
 func _on_Close_pressed():

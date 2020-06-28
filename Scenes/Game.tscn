@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Phase1.gd" type="Script" id=2]
@@ -16,81 +16,153 @@
 [ext_resource path="res://Fonts/Roboto-MediumItalic.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Scripts/Panel.gd" type="Script" id=15]
 [ext_resource path="res://Sprites/undo.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/ErrorMessage.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/ErrorMessage.gd" type="Script" id=17]
 [ext_resource path="res://Scripts/AntiClick.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Settings.gd" type="Script" id=19]
 [ext_resource path="res://Sprites/checkbox_on.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/checkbox_off.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/BugReportPanel.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/Phase2.gd" type="Script" id=23]
+[ext_resource path="res://Scripts/GamesPhase.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/Leaderboard.gd" type="Script" id=25]
+[ext_resource path="res://Sprites/slide.png" type="Texture" id=26]
+[ext_resource path="res://new_styleboxflat.tres" type="StyleBox" id=28]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=7]
 size = 50
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=17]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 46
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="DynamicFont" id=6]
-size = 60
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="DynamicFont" id=9]
+size = 36
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=12]
+flags = 4
+load_path = "res://.import/checkbox_on.png-2bf3f7305c407fd76bc149655233b311.stex"
+
+[sub_resource type="StreamTexture" id=13]
+flags = 4
+load_path = "res://.import/checkbox_off.png-9fd539aee23ece8a19de420bc27bc473.stex"
+
+[sub_resource type="DynamicFont" id=14]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=15]
+flags = 4
+load_path = "res://.import/checkbox_on.png-2bf3f7305c407fd76bc149655233b311.stex"
+
+[sub_resource type="StreamTexture" id=16]
+flags = 4
+load_path = "res://.import/checkbox_off.png-9fd539aee23ece8a19de420bc27bc473.stex"
+
+[sub_resource type="DynamicFont" id=17]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="DynamicFont" id=20]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="DynamicFont" id=22]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=23]
+flags = 4
+load_path = "res://.import/checkbox_on.png-2bf3f7305c407fd76bc149655233b311.stex"
+
+[sub_resource type="StreamTexture" id=24]
+flags = 4
+load_path = "res://.import/checkbox_off.png-9fd539aee23ece8a19de420bc27bc473.stex"
+
+[sub_resource type="DynamicFont" id=25]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
+[sub_resource type="DynamicFont" id=28]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 1, 1, 1, 0 )
+[sub_resource type="StyleBoxEmpty" id=29]
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=30]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="DynamicFont" id=32]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0, 0, 0, 0.313726 )
+
+[sub_resource type="DynamicFont" id=34]
 size = 34
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=13]
+[sub_resource type="StyleBoxEmpty" id=35]
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=36]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=37]
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=38]
 size = 18
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=39]
 size = 30
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 1, 1, 1, 0 )
 
 [node name="Game" type="Node2D"]
 
@@ -158,7 +230,6 @@ __meta__ = {
 }
 
 [node name="Settings" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
-visible = false
 margin_top = 57.0
 margin_right = 576.0
 margin_bottom = 110.0
@@ -176,9 +247,9 @@ __meta__ = {
 }
 
 [node name="How to play" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
-margin_top = 57.0
+margin_top = 114.0
 margin_right = 576.0
-margin_bottom = 110.0
+margin_bottom = 167.0
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -193,16 +264,16 @@ __meta__ = {
 }
 
 [node name="HSep" type="HSeparator" parent="UI/MenuButtons/Start/StartMenu"]
-margin_top = 114.0
+margin_top = 171.0
 margin_right = 576.0
-margin_bottom = 144.0
-custom_styles/separator = SubResource( 18 )
+margin_bottom = 201.0
+custom_styles/separator = SubResource( 2 )
 custom_constants/separation = 30
 
 [node name="Quit" type="Button" parent="UI/MenuButtons/Start/StartMenu"]
-margin_top = 148.0
+margin_top = 205.0
 margin_right = 576.0
-margin_bottom = 201.0
+margin_bottom = 258.0
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -217,63 +288,125 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bug" type="Button" parent="UI/MenuButtons/Start"]
-margin_left = 16.0
-margin_top = 976.0
-margin_right = 192.0
-margin_bottom = 1007.0
-custom_fonts/font = SubResource( 19 )
+[node name="HBox" type="HBoxContainer" parent="UI/MenuButtons/Start"]
+margin_top = 1112.0
+margin_right = 576.0
+margin_bottom = 1152.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep3" type="VSeparator" parent="UI/MenuButtons/Start/HBox"]
+margin_right = 10.0
+margin_bottom = 40.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = 10
+
+[node name="Bug" type="Button" parent="UI/MenuButtons/Start/HBox"]
+margin_left = 14.0
+margin_right = 190.0
+margin_bottom = 40.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
 text = "I found a bug!"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VSep" type="VSeparator" parent="UI/MenuButtons/Start/HBox"]
+margin_left = 194.0
+margin_right = 562.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 3 )
+
+[node name="Donate" type="Button" parent="UI/MenuButtons/Start/HBox"]
+visible = false
+margin_left = 335.0
+margin_right = 562.0
+margin_bottom = 40.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "Donate for project"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep2" type="VSeparator" parent="UI/MenuButtons/Start/HBox"]
+margin_left = 566.0
+margin_right = 576.0
+margin_bottom = 40.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = 10
+
 [node name="move_tween" type="Tween" parent="UI/MenuButtons/Start"]
 
 [node name="HowToPlay" type="Node2D" parent="UI/MenuButtons"]
+visible = false
 position = Vector2( 576, 0 )
 script = ExtResource( 11 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/MenuButtons/HowToPlay"]
 margin_left = 20.0
-margin_top = 216.0
+margin_top = 256.043
 margin_right = 556.0
-margin_bottom = 888.0
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
+margin_bottom = 960.043
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]About the app[/b]
 
-This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Said' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on the 'Said' and 'Got' numbers. At the top you can also see the current number of cards every player should have in their hands.
+This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Bid' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on your point settings. At the top you can also see the current number of cards every player should have in their hands and also an undo button to go back to previous turn. You can also see a bar at the right side to bring up the current leaderboard.
 
-[b]Fast mode and Start with max options[/b]
+[b]Settings[/b]
 
-In Fast mode card numbers will increase and decrease by 2. If you check start with max the game will start at the maximum cards in hands and also ends when you reach maximum.
+-Fast mode: number of cards in hands will decrease/increase by 2, by default its 1.
+-Start with max: you start with the maximum amount of cards in hand.
+-Extra reverse round: when reaching one/maximum cards it only means the half of the game. You will have an extra round going up to max. or down to one.
 
-You can reset the points to 0 any time by pressing the 'Reset' button and you can also quit to main menu any time by perssing the back button of your device. Have fun and if you are not sure in any rule you can always check this [url=https://en.wikipedia.org/wiki/Oh_Hell]WikiPedia[/url] link!"
+-Plus for hitting the bid: the amount of points you get when correctly predicting how many tricks you will win in the current round.
+-Plus for winning a trick: the amount of points you get for each trick you win. 
+-Null bid worth half: you get only half of the points when you win a bid with 0. Let's say you say you are going to win with 0, your prediction is correct and you would get 10 points for that. In this case you only get 5.
+-Plus when missing bid: when you didnt predict your bid correctly you still get points for each trick you have won. If this option is not checked you can set the amount of points to lose for each missed trick, it can also be 0 so you wont lose extra points.
+
+Have fun and if you are not sure in any rule you can always check this [url=https://en.wikipedia.org/wiki/Oh_Hell]WikiPedia[/url] link!"
 text = "About the app
 
-This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Said' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on the 'Said' and 'Got' numbers. At the top you can also see the current number of cards every player should have in their hands.
+This application is designed to help count the points of an Oh Hell match, which you usually would need a pen and paper for. After setting up the game and entering all player names you can see the point counter page. There you can adjust the 'Bid' and 'Got' numbers and if you are ready to count the points just hit the 'Round!' button. The program will calculate everyones point based on your point settings. At the top you can also see the current number of cards every player should have in their hands and also an undo button to go back to previous turn. You can also see a bar at the right side to bring up the current leaderboard.
 
-Fast mode and Start with max options
+Settings
 
-In Fast mode card numbers will increase and decrease by 2. If you check start with max the game will start at the maximum cards in hands and also ends when you reach maximum.
+-Fast mode: number of cards in hands will decrease/increase by 2, by default its 1.
+-Start with max: you start with the maximum amount of cards in hand.
+-Extra reverse round: when reaching one/maximum cards it only means the half of the game. You will have an extra round going up to max. or down to one.
 
-You can reset the points to 0 any time by pressing the 'Reset' button and you can also quit to main menu any time by perssing the back button of your device. Have fun and if you are not sure in any rule you can always check this WikiPedia link!"
+-Plus for hitting the bid: the amount of points you get when correctly predicting how many tricks you will win in the current round.
+-Plus for winning a trick: the amount of points you get for each trick you win. 
+-Null bid worth half: you get only half of the points when you win a bid with 0. Let's say you say you are going to win with 0, your prediction is correct and you would get 10 points for that. In this case you only get 5.
+-Plus when missing bid: when you didnt predict your bid correctly you still get points for each trick you have won. If this option is not checked you can set the amount of points to lose for each missed trick, it can also be 0 so you wont lose extra points.
+
+Have fun and if you are not sure in any rule you can always check this WikiPedia link!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Back" type="Button" parent="UI/MenuButtons/HowToPlay"]
-margin_top = 930.523
+margin_top = 1040.71
 margin_right = 576.0
-margin_bottom = 997.523
+margin_bottom = 1107.71
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -295,37 +428,187 @@ position = Vector2( 576, 0 )
 script = ExtResource( 19 )
 
 [node name="VBox" type="VBoxContainer" parent="UI/MenuButtons/Settings"]
-margin_top = 216.0
+margin_top = 318.141
 margin_right = 576.0
-margin_bottom = 256.0
+margin_bottom = 847.141
 rect_min_size = Vector2( 576, 0 )
 custom_constants/separation = 20
-alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/MenuButtons/Settings/VBox"]
-margin_top = 34.0
 margin_right = 576.0
-margin_bottom = 85.0
-custom_fonts/font = SubResource( 16 )
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
-text = "Settings"
+text = "Point calculation"
 align = 1
 
-[node name="FastMode" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
-margin_top = 105.0
+[node name="HSep" type="HSeparator" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 71.0
 margin_right = 576.0
-margin_bottom = 154.0
+margin_bottom = 81.0
+custom_styles/separator = SubResource( 8 )
+custom_constants/separation = 10
+
+[node name="VBox" type="VBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 101.0
+margin_right = 576.0
+margin_bottom = 185.0
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox"]
+margin_right = 576.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "plus for hitting the bid:"
+align = 1
+
+[node name="HittingBid" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox/VBox"]
+margin_top = 41.0
+margin_right = 576.0
+margin_bottom = 84.0
 alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Settings/VBox/FastMode"]
-margin_left = 152.0
-margin_right = 424.0
-margin_bottom = 49.0
-custom_icons/checked = ExtResource( 20 )
-custom_icons/unchecked = ExtResource( 21 )
+[node name="Minus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox/HittingBid"]
+margin_left = 220.0
+margin_right = 266.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+
+[node name="Number" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox/HittingBid"]
+margin_left = 270.0
+margin_top = 3.0
+margin_right = 310.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "10"
+align = 1
+
+[node name="Plus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox/HittingBid"]
+margin_left = 314.0
+margin_right = 356.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+
+[node name="VBox2" type="VBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 205.0
+margin_right = 576.0
+margin_bottom = 289.0
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox2"]
+margin_right = 576.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "plus for winning a trick:"
+align = 1
+
+[node name="WinTricks" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox/VBox2"]
+margin_top = 41.0
+margin_right = 576.0
+margin_bottom = 84.0
+alignment = 1
+
+[node name="Minus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox2/WinTricks"]
+margin_left = 230.0
+margin_right = 276.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+
+[node name="Number" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox2/WinTricks"]
+margin_left = 280.0
+margin_top = 3.0
+margin_right = 300.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "1"
+align = 1
+
+[node name="Plus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox2/WinTricks"]
+margin_left = 304.0
+margin_right = 346.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
+
+[node name="NullBid" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 309.0
+margin_right = 576.0
+margin_bottom = 357.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Settings/VBox/NullBid"]
+margin_left = 99.0
+margin_right = 476.0
+margin_bottom = 48.0
+focus_mode = 0
+custom_icons/checked = SubResource( 12 )
+custom_icons/unchecked = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_constants/hseparation = 20
+enabled_focus_mode = 0
+text = "null bid worth half"
+expand_icon = true
+
+[node name="MissingBid" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 377.0
+margin_right = 576.0
+margin_bottom = 425.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Settings/VBox/MissingBid"]
+margin_left = 59.0
+margin_right = 517.0
+margin_bottom = 48.0
+focus_mode = 0
+custom_icons/checked = SubResource( 15 )
+custom_icons/unchecked = SubResource( 16 )
 custom_fonts/font = SubResource( 17 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -333,35 +616,75 @@ custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_constants/hseparation = 20
-text = "Fast mode"
+pressed = true
+enabled_focus_mode = 0
+text = "plus when missing bid"
 expand_icon = true
 
-[node name="OneCards" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
-margin_top = 209.0
+[node name="VBox3" type="VBoxContainer" parent="UI/MenuButtons/Settings/VBox"]
+margin_top = 445.0
 margin_right = 576.0
-margin_bottom = 258.0
+margin_bottom = 529.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox3"]
+margin_right = 576.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "minus for missing bid:"
+align = 1
+
+[node name="MissingMinus" type="HBoxContainer" parent="UI/MenuButtons/Settings/VBox/VBox3"]
+margin_top = 41.0
+margin_right = 576.0
+margin_bottom = 84.0
 alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Settings/VBox/OneCards"]
-margin_left = 28.0
-margin_right = 547.0
-margin_bottom = 49.0
-custom_icons/checked = ExtResource( 20 )
-custom_icons/unchecked = ExtResource( 21 )
-custom_fonts/font = SubResource( 17 )
-custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
-custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+[node name="Minus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox3/MissingMinus"]
+margin_left = 230.0
+margin_right = 276.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = " - "
+flat = true
+
+[node name="Number" type="Label" parent="UI/MenuButtons/Settings/VBox/VBox3/MissingMinus"]
+margin_left = 280.0
+margin_top = 3.0
+margin_right = 300.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
-custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
-custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
-custom_constants/hseparation = 20
-text = "Multiple one-card turns"
-expand_icon = true
+text = "2"
+align = 1
+
+[node name="Plus" type="Button" parent="UI/MenuButtons/Settings/VBox/VBox3/MissingMinus"]
+margin_left = 304.0
+margin_right = 346.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_hover = Color( 0.137255, 0.137255, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
+enabled_focus_mode = 0
+text = "+"
+flat = true
 
 [node name="Back" type="Button" parent="UI/MenuButtons/Settings"]
-margin_top = 930.523
+margin_top = 1040.87
 margin_right = 576.0
-margin_bottom = 997.523
+margin_bottom = 1107.87
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -383,9 +706,9 @@ position = Vector2( 576, 0 )
 script = ExtResource( 2 )
 
 [node name="Phase1Menu" type="VBoxContainer" parent="UI/MenuButtons/Phase1"]
-margin_top = 300.0
+margin_top = 370.0
 margin_right = 576.0
-margin_bottom = 789.0
+margin_bottom = 1002.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -393,7 +716,7 @@ __meta__ = {
 [node name="NofPlayers" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu"]
 margin_right = 576.0
 margin_bottom = 47.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Number of players:"
 align = 1
@@ -424,14 +747,14 @@ __meta__ = {
 margin_left = 249.0
 margin_right = 269.0
 margin_bottom = 61.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 20
 
 [node name="Number" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
 margin_left = 273.0
 margin_right = 307.0
 margin_bottom = 61.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "3"
 
@@ -439,7 +762,7 @@ text = "3"
 margin_left = 311.0
 margin_right = 331.0
 margin_bottom = 61.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 20
 
 [node name="Plus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox"]
@@ -462,7 +785,7 @@ __meta__ = {
 margin_top = 116.0
 margin_right = 576.0
 margin_bottom = 163.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Max. cards in hand:"
 align = 1
@@ -492,14 +815,14 @@ __meta__ = {
 margin_left = 249.0
 margin_right = 269.0
 margin_bottom = 61.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 20
 
 [node name="NumberOfLaps" type="Label" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
 margin_left = 273.0
 margin_right = 307.0
 margin_bottom = 61.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "7"
 
@@ -507,7 +830,7 @@ text = "7"
 margin_left = 311.0
 margin_right = 331.0
 margin_bottom = 61.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 20
 
 [node name="Plus" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/HBox2"]
@@ -529,7 +852,7 @@ __meta__ = {
 margin_top = 232.0
 margin_right = 576.0
 margin_bottom = 292.0
-custom_styles/separator = SubResource( 7 )
+custom_styles/separator = SubResource( 21 )
 custom_constants/separation = 60
 
 [node name="FastMode" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
@@ -539,19 +862,21 @@ margin_bottom = 345.0
 alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Phase1/Phase1Menu/FastMode"]
-margin_left = 152.0
-margin_right = 424.0
+margin_left = 156.0
+margin_right = 419.0
 margin_bottom = 49.0
+focus_mode = 0
 custom_icons/checked = ExtResource( 20 )
 custom_icons/unchecked = ExtResource( 21 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_constants/hseparation = 20
-text = "Fast mode"
+enabled_focus_mode = 0
+text = "fast mode"
 expand_icon = true
 
 [node name="StartWihtMax" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
@@ -561,32 +886,58 @@ margin_bottom = 398.0
 alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Phase1/Phase1Menu/StartWihtMax"]
-margin_left = 116.0
-margin_right = 460.0
+margin_left = 117.0
+margin_right = 458.0
 margin_bottom = 49.0
+focus_mode = 0
 custom_icons/checked = ExtResource( 20 )
 custom_icons/unchecked = ExtResource( 21 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_constants/hseparation = 20
-text = "Start with max"
+enabled_focus_mode = 0
+text = "start with max"
+expand_icon = true
+
+[node name="ReverseRound" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
+margin_top = 402.0
+margin_right = 576.0
+margin_bottom = 451.0
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="UI/MenuButtons/Phase1/Phase1Menu/ReverseRound"]
+margin_left = 61.0
+margin_right = 515.0
+margin_bottom = 49.0
+focus_mode = 0
+custom_icons/checked = SubResource( 23 )
+custom_icons/unchecked = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_constants/hseparation = 20
+enabled_focus_mode = 0
+text = "extra reverse round"
 expand_icon = true
 
 [node name="HSep" type="HSeparator" parent="UI/MenuButtons/Phase1/Phase1Menu"]
-margin_top = 402.0
+margin_top = 455.0
 margin_right = 576.0
-margin_bottom = 522.0
-custom_styles/separator = SubResource( 7 )
+margin_bottom = 575.0
+custom_styles/separator = SubResource( 21 )
 custom_constants/separation = 120
 
 [node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/Phase1/Phase1Menu"]
-margin_top = 526.0
+margin_top = 579.0
 margin_right = 576.0
-margin_bottom = 579.0
+margin_bottom = 632.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -613,7 +964,7 @@ __meta__ = {
 margin_left = 244.0
 margin_right = 344.0
 margin_bottom = 53.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 100
 
 [node name="Next" type="Button" parent="UI/MenuButtons/Phase1/Phase1Menu/Continue"]
@@ -638,7 +989,7 @@ __meta__ = {
 [node name="Phase2" type="Node2D" parent="UI/MenuButtons"]
 visible = false
 position = Vector2( 576, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 23 )
 
 [node name="Phase2Title" type="VBoxContainer" parent="UI/MenuButtons/Phase2"]
 margin_top = 56.0
@@ -651,7 +1002,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="UI/MenuButtons/Phase2/Phase2Title"]
 margin_right = 576.0
 margin_bottom = 47.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Names:"
 align = 1
@@ -662,7 +1013,7 @@ __meta__ = {
 [node name="Marg" type="MarginContainer" parent="UI/MenuButtons/Phase2"]
 margin_top = 132.0
 margin_right = 576.0
-margin_bottom = 757.0
+margin_bottom = 997.0
 custom_constants/margin_right = 30
 custom_constants/margin_left = 30
 __meta__ = {
@@ -672,7 +1023,7 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/MenuButtons/Phase2/Marg"]
 margin_left = 30.0
 margin_right = 546.0
-margin_bottom = 625.0
+margin_bottom = 865.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -684,9 +1035,9 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/Phase2"]
-margin_top = 805.082
+margin_top = 1030.0
 margin_right = 576.0
-margin_bottom = 872.082
+margin_bottom = 1097.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -713,7 +1064,7 @@ __meta__ = {
 margin_left = 244.0
 margin_right = 344.0
 margin_bottom = 67.0
-custom_styles/separator = SubResource( 5 )
+custom_styles/separator = SubResource( 19 )
 custom_constants/separation = 100
 
 [node name="Next" type="Button" parent="UI/MenuButtons/Phase2/Continue"]
@@ -741,13 +1092,13 @@ visible = false
 [node name="GamesPhase" type="Node2D" parent="UI/MenuButtons"]
 visible = false
 position = Vector2( 576, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 24 )
 
 [node name="GamePhaseMenu" type="VBoxContainer" parent="UI/MenuButtons/GamesPhase"]
 margin_left = 40.0
 margin_top = 25.0
 margin_right = 536.0
-margin_bottom = 888.0
+margin_bottom = 1025.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -764,7 +1115,7 @@ __meta__ = {
 margin_left = 43.0
 margin_right = 398.0
 margin_bottom = 47.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Cards in hands:"
 align = 1
@@ -773,14 +1124,14 @@ align = 1
 margin_left = 402.0
 margin_right = 422.0
 margin_bottom = 47.0
-custom_styles/separator = SubResource( 8 )
+custom_styles/separator = SubResource( 26 )
 custom_constants/separation = 20
 
 [node name="Rounds" type="Label" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/HBox"]
 margin_left = 426.0
 margin_right = 452.0
 margin_bottom = 47.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 text = "0"
 align = 1
@@ -789,23 +1140,23 @@ align = 1
 margin_top = 51.0
 margin_right = 496.0
 margin_bottom = 71.0
-custom_styles/separator = SubResource( 9 )
+custom_styles/separator = SubResource( 27 )
 custom_constants/separation = 20
 
 [node name="ScrollC" type="ScrollContainer" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu"]
 margin_top = 75.0
 margin_right = 496.0
-margin_bottom = 875.0
-rect_min_size = Vector2( 0, 800 )
+margin_bottom = 995.0
+rect_min_size = Vector2( 0, 920 )
 scroll_horizontal_enabled = false
 
 [node name="Players" type="VBoxContainer" parent="UI/MenuButtons/GamesPhase/GamePhaseMenu/ScrollC"]
 custom_constants/separation = 40
 
 [node name="Continue" type="HBoxContainer" parent="UI/MenuButtons/GamesPhase"]
-margin_top = 930.523
+margin_top = 1043.52
 margin_right = 576.0
-margin_bottom = 997.523
+margin_bottom = 1110.52
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -832,7 +1183,7 @@ __meta__ = {
 margin_left = 249.0
 margin_right = 299.0
 margin_bottom = 67.0
-custom_styles/separator = SubResource( 8 )
+custom_styles/separator = SubResource( 26 )
 custom_constants/separation = 50
 
 [node name="Round" type="Button" parent="UI/MenuButtons/GamesPhase/Continue"]
@@ -869,10 +1220,12 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 53.0
 margin_bottom = 67.0
-custom_fonts/font = SubResource( 10 )
+focus_mode = 0
+custom_fonts/font = SubResource( 28 )
 custom_colors/font_color = Color( 0.658824, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.658824, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.337255, 0, 0, 1 )
+enabled_focus_mode = 0
 text = "X"
 flat = true
 __meta__ = {
@@ -880,6 +1233,84 @@ __meta__ = {
 }
 
 [node name="move_tween" type="Tween" parent="UI/MenuButtons/GamesPhase"]
+
+[node name="Leaderboard" type="Node2D" parent="UI/MenuButtons"]
+visible = false
+position = Vector2( 527, 0 )
+script = ExtResource( 25 )
+
+[node name="PanelC" type="PanelContainer" parent="UI/MenuButtons/Leaderboard"]
+margin_left = 50.0
+margin_top = 214.0
+margin_right = 577.0
+margin_bottom = 906.0
+custom_styles/panel = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="UI/MenuButtons/Leaderboard/PanelC"]
+margin_right = 527.0
+margin_bottom = 692.0
+custom_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="UI/MenuButtons/Leaderboard/PanelC/VBox"]
+margin_right = 527.0
+margin_bottom = 4.0
+custom_styles/separator = SubResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MenuButtons/Leaderboard/PanelC/VBox"]
+margin_top = 14.0
+margin_right = 527.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 30 )
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+text = "Leaderboard"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="UI/MenuButtons/Leaderboard/PanelC/VBox"]
+margin_top = 65.0
+margin_right = 527.0
+margin_bottom = 69.0
+custom_styles/separator = SubResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Players" type="VBoxContainer" parent="UI/MenuButtons/Leaderboard/PanelC/VBox"]
+margin_top = 79.0
+margin_right = 527.0
+margin_bottom = 79.0
+custom_constants/separation = 20
+
+[node name="Panel" type="PanelContainer" parent="UI/MenuButtons/Leaderboard"]
+margin_left = 11.0
+margin_top = 699.0
+margin_right = 73.0
+margin_bottom = 833.0
+custom_styles/panel = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/MenuButtons/Leaderboard/Panel"]
+margin_right = 62.0
+margin_bottom = 134.0
+focus_mode = 0
+custom_fonts/font = SubResource( 32 )
+custom_colors/font_color_disabled = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = true
+enabled_focus_mode = 0
+icon = ExtResource( 26 )
+flat = true
+
+[node name="move_tween" type="Tween" parent="UI/MenuButtons/Leaderboard"]
 
 [node name="Panel" type="Node2D" parent="UI/MenuButtons"]
 visible = false
@@ -890,7 +1321,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 576.0
 margin_bottom = 1152.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 33 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -940,7 +1371,7 @@ __meta__ = {
 margin_left = 10.0
 margin_right = 329.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 34 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Quit to main menu?"
 
@@ -957,7 +1388,7 @@ __meta__ = {
 margin_right = 32.0
 margin_bottom = 53.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 13 )
+custom_styles/separator = SubResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -981,7 +1412,7 @@ __meta__ = {
 margin_left = 131.0
 margin_right = 231.0
 margin_bottom = 53.0
-custom_styles/separator = SubResource( 13 )
+custom_styles/separator = SubResource( 35 )
 custom_constants/separation = 100
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1007,14 +1438,13 @@ margin_left = 307.0
 margin_right = 340.0
 margin_bottom = 53.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 14 )
+custom_styles/separator = SubResource( 36 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ResetPanel" type="Node2D" parent="UI/MenuButtons"]
 visible = false
-skew = 4.37114e-08
 script = ExtResource( 15 )
 
 [node name="AntiClickPanel" type="Panel" parent="UI/MenuButtons/ResetPanel"]
@@ -1022,7 +1452,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 576.0
 margin_bottom = 1152.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 33 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -1072,7 +1502,7 @@ __meta__ = {
 margin_left = 61.0
 margin_right = 279.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 34 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 text = "Reset game?"
 
@@ -1089,7 +1519,7 @@ __meta__ = {
 margin_right = 32.0
 margin_bottom = 53.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 13 )
+custom_styles/separator = SubResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1113,7 +1543,7 @@ __meta__ = {
 margin_left = 131.0
 margin_right = 231.0
 margin_bottom = 53.0
-custom_styles/separator = SubResource( 13 )
+custom_styles/separator = SubResource( 35 )
 custom_constants/separation = 100
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1139,7 +1569,7 @@ margin_left = 307.0
 margin_right = 340.0
 margin_bottom = 53.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 14 )
+custom_styles/separator = SubResource( 36 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1152,7 +1582,7 @@ script = ExtResource( 17 )
 [node name="Label" type="Label" parent="UI/MenuButtons/ErrorMessage"]
 margin_right = 576.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 37 )
 custom_colors/font_color = Color( 0.862745, 0.0784314, 0.235294, 1 )
 text = "This is an error message"
 align = 1
@@ -1167,7 +1597,6 @@ __meta__ = {
 
 [node name="BugReportPanel" type="Node2D" parent="UI/MenuButtons"]
 visible = false
-skew = 4.37114e-08
 script = ExtResource( 22 )
 
 [node name="Panel" type="Panel" parent="UI/MenuButtons/BugReportPanel"]
@@ -1195,7 +1624,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 546.0
 margin_bottom = 95.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 38 )
 text = "If you found a bug or just want to contact the developer of the app, send an email to: 
 
 zahoranm97@gmail.com"
@@ -1209,7 +1638,7 @@ margin_left = 454.0
 margin_top = 64.0
 margin_right = 546.0
 margin_bottom = 101.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 39 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -1226,7 +1655,6 @@ __meta__ = {
 
 [node name="AntiClick" type="Node2D" parent="UI/MenuButtons"]
 visible = false
-skew = 4.37114e-08
 script = ExtResource( 18 )
 
 [node name="AntiClickPanel2" type="Panel" parent="UI/MenuButtons/AntiClick"]
@@ -1234,7 +1662,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 576.0
 margin_bottom = 1152.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 40 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -1244,16 +1672,24 @@ __meta__ = {
 [connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/Start" to="UI/MenuButtons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/Settings" to="UI/MenuButtons" method="_on_Settings_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Start/StartMenu/How to play" to="UI/MenuButtons" method="_on_How_to_play_pressed"]
-[connection signal="pressed" from="UI/MenuButtons/Start/Bug" to="UI/MenuButtons" method="_on_Bug_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Start/HBox/Bug" to="UI/MenuButtons" method="_on_Bug_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Start/HBox/Donate" to="UI/MenuButtons" method="_on_Donate_pressed"]
 [connection signal="meta_clicked" from="UI/MenuButtons/HowToPlay/RichTextLabel" to="UI/MenuButtons/HowToPlay" method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="UI/MenuButtons/HowToPlay/Back" to="UI/MenuButtons" method="_on_How_to_play_Back_pressed"]
-[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/FastMode/CheckBox" to="UI/MenuButtons/Settings" method="_on_FastMode_pressed"]
-[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/OneCards/CheckBox" to="UI/MenuButtons/Settings" method="_on_OneCards_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox/HittingBid/Minus" to="UI/MenuButtons/Settings" method="_on_HittingBid_Minus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox/HittingBid/Plus" to="UI/MenuButtons/Settings" method="_on_HittingBid_Plus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox2/WinTricks/Minus" to="UI/MenuButtons/Settings" method="_on_WinTricks_Minus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox2/WinTricks/Plus" to="UI/MenuButtons/Settings" method="_on_WinTricks_Plus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/NullBid/CheckBox" to="UI/MenuButtons/Settings" method="_on_NullBid_CheckBox_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/MissingBid/CheckBox" to="UI/MenuButtons/Settings" method="_on_MissingBid_CheckBox_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox3/MissingMinus/Minus" to="UI/MenuButtons/Settings" method="_on_MissingBid_Minus_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Settings/VBox/VBox3/MissingMinus/Plus" to="UI/MenuButtons/Settings" method="_on_MissingBid_Plus_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Settings/Back" to="UI/MenuButtons" method="_on_Settings_Back_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/HBox2/Minus" to="UI/MenuButtons" method="_on_MaxLap_Minus_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/HBox2/Plus" to="UI/MenuButtons" method="_on_MaxLaps_Plus_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/FastMode/CheckBox" to="UI/MenuButtons/Phase1" method="_on_FastMode_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/StartWihtMax/CheckBox" to="UI/MenuButtons/Phase1" method="_on_StartWithMax_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/ReverseRound/CheckBox" to="UI/MenuButtons/Phase1" method="_on_ExtraReverse_CheckBox_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/Continue/Back" to="UI/MenuButtons" method="_on_Start_Back_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase1/Phase1Menu/Continue/Next" to="UI/MenuButtons" method="_on_Phase1_Next_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Phase2/Continue/Back" to="UI/MenuButtons" method="_on_Phase2_Back_pressed"]
@@ -1262,6 +1698,7 @@ __meta__ = {
 [connection signal="pressed" from="UI/MenuButtons/GamesPhase/Continue/Round" to="UI/MenuButtons" method="_on_GamePhase_Round_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/GamesPhase/Undo" to="UI/MenuButtons" method="_on_GamePhase_Undo_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/GamesPhase/QuitButton" to="UI/MenuButtons" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/Leaderboard/Panel/Button" to="UI/MenuButtons/Leaderboard" method="_on_Button_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2/yes" to="UI/MenuButtons" method="_on_Panel_yes_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/Panel/Backg/Margin/VBox/HBox2/no" to="UI/MenuButtons" method="_on_Panel_no_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/ResetPanel/Backg/Margin/VBox/HBox2/yes" to="UI/MenuButtons" method="_on_ResetPanel_yes_pressed"]

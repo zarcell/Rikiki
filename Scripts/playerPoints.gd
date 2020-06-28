@@ -6,7 +6,10 @@ func _ready():
 
 func setText(text):
 	$Infos/Name.text = text
-	
+
+func getText():
+	return $Infos/Name.text
+
 func setPoint(p):
 	$Infos/Point.text = str(p)
 	
@@ -25,10 +28,16 @@ func calcPoints():
 	var plusPoints = 0
 	
 	if snum == gnum:
-		plusPoints = 10 + (snum * 2)
+		if gnum == 0 and Global.nullBidWorthHalf:
+			plusPoints = int(Global.hittingBidExtra / 2)
+		else:
+			plusPoints = Global.hittingBidExtra + (gnum * Global.trickWinExtra)
 	else:
-		plusPoints = abs(snum-gnum) * -2
-			
+		if Global.pointsWhenMissingBid:
+			plusPoints = Global.trickWinExtra * gnum
+		else:
+			plusPoints = abs(snum-gnum) * -Global.missingBidMinus
+	
 	#change values
 	var currentPoints = int($Infos/Point.text)
 	$Infos/Point.text = str(currentPoints + plusPoints)

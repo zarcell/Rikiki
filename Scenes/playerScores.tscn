@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/playerScores.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="PlayerScore" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSep2" type="VSeparator" parent="."]
+margin_right = 20.0
+margin_bottom = 40.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = 20
+
+[node name="Name" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 4.0
+margin_right = 195.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+text = "Playername"
+
+[node name="VSep" type="VSeparator" parent="."]
+margin_left = 199.0
+margin_right = 203.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 207.0
+margin_top = 4.0
+margin_right = 258.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+text = "100"
+
+[node name="VSep3" type="VSeparator" parent="."]
+margin_left = 262.0
+margin_right = 282.0
+margin_bottom = 40.0
+custom_styles/separator = SubResource( 4 )
+custom_constants/separation = 20

@@ -19,6 +19,8 @@ onready var rounds_node = $GamesPhase/GamePhaseMenu/HBox/Rounds
 
 func _ready():
 	resetGame()
+	
+	Global.load_data()
 
 func resetGame():
 	raising = !Global.startWithMax
@@ -95,6 +97,8 @@ func _on_Start_pressed():
 
 
 func _on_Start_Back_pressed():
+	Global.save_data()
+	
 	$AntiClick.start()
 	
 	get_parent().get_node("TitleNode").move(Vector2(288, 300))
@@ -103,6 +107,8 @@ func _on_Start_Back_pressed():
 
 
 func _on_Phase1_Next_pressed():
+	Global.save_data()
+	
 	$AntiClick.start()
 	
 	$Phase2/Marg/ScrollContainer.scroll_vertical_enabled = Global.numberOfPlayers > 5
@@ -333,6 +339,8 @@ func _on_Settings_pressed():
 
 
 func _on_Settings_Back_pressed():
+	Global.save_data()
+	
 	$AntiClick.start()
 	
 	get_parent().get_node("TitleNode").move(Vector2(288, 300))

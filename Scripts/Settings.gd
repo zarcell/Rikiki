@@ -10,6 +10,7 @@ func move(target):
 	$VBox/VBox2/WinTricks/Number.text = str(Global.trickWinExtra)
 	$VBox/MissingBid/CheckBox.pressed = Global.pointsWhenMissingBid
 	$VBox/VBox3.visible = !Global.pointsWhenMissingBid
+	$VBox/VBox3/MissingMinus/Number.text = str(Global.missingBidMinus)
 	$VBox/NullBid/CheckBox.pressed = Global.nullBidWorthHalf
 	
 	var move_tween = get_node("move_tween")

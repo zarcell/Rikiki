@@ -1,6 +1,7 @@
 extends Node2D
 
 var numberOfPlayers = 3
+var chosenPlayer = null
 var maximumLaps = 7
 
 # SETTINGS
@@ -64,18 +65,3 @@ func load_data():
 	nullBidWorthHalf = save_dict["null_bid_worth_half"]
 	
 	save_file.close()
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

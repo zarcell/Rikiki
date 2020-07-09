@@ -1,9 +1,15 @@
 extends Node2D
 
 func _ready():
-	self.visible = false
+	visible = false
 
-func move(target):
-	var move_tween = get_node("move_tween")
-	move_tween.interpolate_property(self, "position", position, target, Global.animationSpeed, Tween.TRANS_QUINT, Tween.EASE_OUT)
-	move_tween.start()
+func open():
+	visible = true
+	$AnPlayer.play("PanelOpen")
+
+func close():
+	$AnPlayer.play("PanelClose")
+
+
+func _on_Close_pressed():
+	close()

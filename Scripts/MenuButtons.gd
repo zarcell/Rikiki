@@ -84,7 +84,7 @@ func add_players_with_points():
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST and gamePhase:
-		$Panel.visible = true
+		_on_QuitButton_pressed()
 
 
 # Panel movings
@@ -169,7 +169,8 @@ func _on_Phase2_Next_pressed():
 func _on_GamePhase_Round_pressed():
 	var sum = 0
 	for child in players:
-		sum += child.getGNum()
+		if child.active:
+			sum += child.getGNum()
 	if sum != int(rounds_node.text):
 		var temp = int(rounds_node.text)
 		if sum < temp:
@@ -221,17 +222,21 @@ func _on_GamePhase_Round_pressed():
 	
 	#calculating new points
 	for child in players:
-		child.calcPoints()
+		if child.active:
+			child.calcPoints()
 		
 	#leaderboard points update
 	updateLeaderboard()
-	print("from round pressed")
 	
 	#change color of the player names
 	players[currentPlayer].change_color(Global.dark_gray)
 	currentPlayer += 1
 	if currentPlayer >= players.size():
 		currentPlayer = 0
+	while !players[currentPlayer].active:
+		currentPlayer += 1
+		if currentPlayer >= players.size():
+			currentPlayer = 0
 	players[currentPlayer].change_color(Global.lime)
 	
 
@@ -261,7 +266,7 @@ func comp(a, b):
 	
 
 func _on_GamePhase_Reset_pressed():
-	$ResetPanel.visible = true
+	$ResetPanel.open()
 
 
 func _on_MaxLap_Minus_pressed():
@@ -281,7 +286,7 @@ func _on_MaxLaps_Plus_pressed():
 
 
 func _on_Panel_no_pressed():
-	$Panel.visible = false
+	$Panel.close()
 
 
 func _on_Panel_yes_pressed():
@@ -289,7 +294,7 @@ func _on_Panel_yes_pressed():
 
 
 func _on_ResetPanel_yes_pressed():
-	$ResetPanel.visible = false
+	$ResetPanel.close()
 	
 	var list = $GamesPhase/GamePhaseMenu/ScrollC/Players.get_children()
 	
@@ -302,11 +307,11 @@ func _on_ResetPanel_yes_pressed():
 
 
 func _on_ResetPanel_no_pressed():
-	$ResetPanel.visible = false
+	$ResetPanel.close()
 
 
 func _on_QuitButton_pressed():
-	$Panel.visible = true
+	$Panel.open()
 
 
 #UNDO
@@ -355,3 +360,48 @@ func _on_Bug_pressed():
 func _on_Donate_pressed():
 	var URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EYEA52E2HCXAG&source=url"
 	OS.shell_open(URL)
+
+
+func _on_SetDealer_pressed():
+	if Global.chosenPlayer.active:
+		players[currentPlayer].change_color(Global.dark_gray)
+		Global.chosenPlayer.change_color(Global.lime)
+		currentPlayer = players.find(Global.chosenPlayer)
+		$PlayerPanel.close()
+
+
+func _on_PlayerToggle_pressed():
+	var active_players = 0
+	for p in players:
+		if p.active:
+			active_players += 1
+	if (Global.chosenPlayer.active and active_players > 3) or !Global.chosenPlayer.active:
+		Global.chosenPlayer.toggle()
+		#ha deaktivaltuk es dealer volt adjuk tovabb a dealert
+		if !Global.chosenPlayer.active and players.find(Global.chosenPlayer) == currentPlayer:
+			currentPlayer += 1
+			if currentPlayer >= players.size():
+				currentPlayer = 0
+			while !players[currentPlayer].active:
+				currentPlayer += 1
+				if currentPlayer >= players.size():
+					currentPlayer = 0
+			players[currentPlayer].change_color(Global.lime)
+		$PlayerPanel.close()
+	else:
+		$ErrorMessage.setText("There need to be at least 3 active players!")
+		$ErrorMessage.start()
+
+func close_panels():
+	$Panel.visible = false
+	$ResetPanel.visible = false
+	$PlayerPanel.visible = false
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,20 @@
 extends VBoxContainer
 
+var active = true
+
 func _ready():
 	$HBox/SNum.text = "0"
 	$HBox/GNum.text = "0"
+
+func toggle():
+	if active:
+		change_color(Global.light_gray)
+		$HBox.visible = false
+	else:
+		change_color(Global.dark_gray)
+		$HBox.visible = true
+		
+	active = !active
 
 func setText(text):
 	$Infos/Name.text = text
@@ -79,3 +91,9 @@ func _on_Got_Plus_pressed():
 	if gnum < 15:
 		gnum += 1
 		$HBox/GNum.text = str(gnum)
+
+
+func _on_Name_pressed():
+	Global.chosenPlayer = self
+	var playerPanel = get_tree().get_root().find_node("PlayerPanel", true, false)
+	playerPanel.open()

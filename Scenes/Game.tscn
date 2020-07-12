@@ -149,7 +149,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=36]
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=37]
 resource_name = "PanelClose"
 length = 0.1
 tracks/0/type = "value"
@@ -191,7 +191,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="Animation" id=38]
 resource_name = "PanelOpen"
 length = 0.1
 tracks/0/type = "value"
@@ -219,80 +219,7 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.313726 ) ]
 }
 
-[sub_resource type="Animation" id=48]
-resource_name = "PanelClose"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AntiClickPanel:custom_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0.313726 ), Color( 0, 0, 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Backg:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "close_panels"
-} ]
-}
-
-[sub_resource type="Animation" id=49]
-resource_name = "PanelOpen"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Backg:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 0.01 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AntiClickPanel:custom_styles/panel:bg_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.313726 ) ]
-}
-
-[sub_resource type="StyleBoxFlat" id=39]
-bg_color = Color( 0, 0, 0, 0.297029 )
-
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=39]
 resource_name = "PanelClose"
 length = 0.1
 tracks/0/type = "value"
@@ -362,19 +289,91 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.313726 ) ]
 }
 
-[sub_resource type="DynamicFont" id=41]
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 0, 0, 0, 0.297029 )
+
+[sub_resource type="Animation" id=42]
+resource_name = "PanelClose"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AntiClickPanel:custom_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.313726 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Backg:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "close_panels"
+} ]
+}
+
+[sub_resource type="Animation" id=43]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Backg:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.01 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AntiClickPanel:custom_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.313726 ) ]
+}
+
+[sub_resource type="DynamicFont" id=44]
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=42]
+[sub_resource type="DynamicFont" id=45]
 size = 18
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=43]
+[sub_resource type="DynamicFont" id=46]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=44]
+[sub_resource type="StyleBoxFlat" id=47]
 bg_color = Color( 1, 1, 1, 0 )
 
 [node name="Game" type="Node2D"]
@@ -1662,8 +1661,8 @@ __meta__ = {
 }
 
 [node name="AnPlayer" type="AnimationPlayer" parent="UI/MenuButtons/Panel"]
-anims/PanelClose = SubResource( 46 )
-anims/PanelOpen = SubResource( 47 )
+anims/PanelClose = SubResource( 37 )
+anims/PanelOpen = SubResource( 38 )
 
 [node name="ResetPanel" type="Node2D" parent="UI/MenuButtons"]
 visible = false
@@ -1803,10 +1802,11 @@ __meta__ = {
 }
 
 [node name="AnPlayer" type="AnimationPlayer" parent="UI/MenuButtons/ResetPanel"]
-anims/PanelClose = SubResource( 48 )
-anims/PanelOpen = SubResource( 49 )
+anims/PanelClose = SubResource( 39 )
+anims/PanelOpen = SubResource( 40 )
 
 [node name="PlayerPanel" type="Node2D" parent="UI/MenuButtons"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="AntiClickPanel" type="Panel" parent="UI/MenuButtons/PlayerPanel"]
@@ -1814,7 +1814,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 576.0
 margin_bottom = 1152.0
-custom_styles/panel = SubResource( 39 )
+custom_styles/panel = SubResource( 41 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -1883,15 +1883,15 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_pressed = Color( 0.709804, 0.709804, 0.709804, 1 )
 enabled_focus_mode = 0
-text = "On/Off"
+text = "On / Off"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnPlayer" type="AnimationPlayer" parent="UI/MenuButtons/PlayerPanel"]
-anims/PanelClose = SubResource( 45 )
-anims/PanelOpen = SubResource( 40 )
+anims/PanelClose = SubResource( 42 )
+anims/PanelOpen = SubResource( 43 )
 
 [node name="ErrorMessage" type="Node2D" parent="UI/MenuButtons"]
 visible = false
@@ -1901,7 +1901,7 @@ script = ExtResource( 17 )
 [node name="Label" type="Label" parent="UI/MenuButtons/ErrorMessage"]
 margin_right = 576.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 41 )
+custom_fonts/font = SubResource( 44 )
 custom_colors/font_color = Color( 0.862745, 0.0784314, 0.235294, 1 )
 text = "This is an error message"
 align = 1
@@ -1943,7 +1943,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 546.0
 margin_bottom = 95.0
-custom_fonts/font = SubResource( 42 )
+custom_fonts/font = SubResource( 45 )
 text = "If you found a bug or just want to contact the developer of the app, send an email to: 
 
 zahoranm97@gmail.com"
@@ -1957,7 +1957,7 @@ margin_left = 454.0
 margin_top = 64.0
 margin_right = 546.0
 margin_bottom = 101.0
-custom_fonts/font = SubResource( 43 )
+custom_fonts/font = SubResource( 46 )
 custom_colors/font_color_disabled = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
 custom_colors/font_color_hover = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -1981,7 +1981,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 576.0
 margin_bottom = 1152.0
-custom_styles/panel = SubResource( 44 )
+custom_styles/panel = SubResource( 47 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false

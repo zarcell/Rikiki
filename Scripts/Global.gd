@@ -18,6 +18,7 @@ var nullBidWorthHalf = false
 
 var animationSpeed = 0.5
 
+#paletta
 var light_gray = "#b5b5b5"
 var gray = "#818181"
 var dark_gray = "#232323"

@@ -375,7 +375,7 @@ func _on_PlayerToggle_pressed():
 	for p in players:
 		if p.active:
 			active_players += 1
-	if (Global.chosenPlayer.active and active_players > 3) or !Global.chosenPlayer.active:
+	if (Global.chosenPlayer.active and active_players > 2) or !Global.chosenPlayer.active:
 		Global.chosenPlayer.toggle()
 		#ha deaktivaltuk es dealer volt adjuk tovabb a dealert
 		if !Global.chosenPlayer.active and players.find(Global.chosenPlayer) == currentPlayer:
@@ -389,7 +389,7 @@ func _on_PlayerToggle_pressed():
 			players[currentPlayer].change_color(Global.lime)
 		$PlayerPanel.close()
 	else:
-		$ErrorMessage.setText("There need to be at least 3 active players!")
+		$ErrorMessage.setText("There need to be at least 2 active players!")
 		$ErrorMessage.start()
 
 func close_panels():
